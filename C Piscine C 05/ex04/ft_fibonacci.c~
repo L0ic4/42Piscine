@@ -30,5 +30,5 @@ int	main(void)
 	index = 9;
 	int resultat = ft_fibonacci(index);
 	printf("Le terme à l'indice %d dans la suite de Fibonacci est : %d\n", index, resultat);
-	return (0);
+	return 0;
 }

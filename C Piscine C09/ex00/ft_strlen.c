@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 
 // ft_strlen.c
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int count = 0;
-    while (*str)
-    {
-        count++;
-        str++;
-    }
-    return count;
+	int	count;
+
+	count = 0;
+	while (*str)
+	{
+		count++;
+		str++;
+	}
+	return (count);
 }

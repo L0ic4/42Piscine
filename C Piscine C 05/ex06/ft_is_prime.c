@@ -12,38 +12,29 @@
 
 #include <stdio.h>
 
-int ft_is_prime(int nb)
+int	ft_is_prime(int nb)
 {
-    int i;
+	int	i;
 
-    if (nb == 0 || nb == 1)
-    {
-        return 0;
-    }
+	if (nb == 0 || nb == 1)
+		return (0);
+	i = 2;
+	while (i < nb / 2)
+	{
+		if (nb % i == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-    i = 2;
-    while (i < nb / 2)
-    {
-        if (nb % i == 0)
-        {
-            return 0;
-        }
-        i++;
-    }
-    return 1;
-} 
-
-int main()
+int	main(void)
 {
-    // Tester la fonction ft_is_prime avec différents nombres
-    int test1 = 1;
-    int test2 = 25;
-    int test3 = 7;
-
-    // Afficher les résultats des tests
-    printf("%d est premier : %s\n", test1, ft_is_prime(test1) ? "Oui" : "Non");
-    printf("%d est premier : %s\n", test2, ft_is_prime(test2) ? "Oui" : "Non");
-    printf("%d est premier : %s\n", test3, ft_is_prime(test3) ? "Oui" : "Non");
-
-    return 0;
+	int	test1 = 1;
+	int	test2 = 25;
+	int	test3 = 7;
+	printf("%d est premier : %s\n", test1, ft_is_prime(test1) ? "Oui" : "Non");
+	printf("%d est premier : %s\n", test2, ft_is_prime(test2) ? "Oui" : "Non");
+	printf("%d est premier : %s\n", test3, ft_is_prime(test3) ? "Oui" : "Non");
+	return (0);
 }

@@ -12,22 +12,18 @@
 
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    // Vérifier s'il y a au moins un argument (le nom du programme lui-même)
-    if (argc < 2)
-    {
-        return 1;
-    }
+	int	i;
 
-    // Utiliser une boucle while pour afficher les arguments un par un, à partir du deuxième (argv[1])
-    int i = argc -1;
-    while (i > 0)
-    {
-        write(1, argv[i], strlen(argv[i]));
-        write(1, "\n", 1);
-        i--;
-    }
-
-    return 0;
+	if (argc < 2)
+		return (1);
+	i = argc -1;
+	while (i > 0)
+	{
+		write(1, argv[i], strlen(argv[i]));
+		write(1, "\n", 1);
+		i--;
+	}
+	return (0);
 }

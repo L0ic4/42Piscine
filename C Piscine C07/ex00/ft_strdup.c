@@ -14,49 +14,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ft_strcpy(char *dst, char *src)
+void	ft_strcpy(char *dst, char *src)
 {
-    while (*src != '\0')
-    {
-        *dst = *src;
-        src++;
-        dst++;
-    }
-    *dst = '\0'; // Ensure the destination string is null-terminated
+	while (*src != '\0')
+	{
+		*dst = *src;
+		src++;
+		dst++;
+	}
+	*dst = '\0';
 }
 
-int ft_strlen(char *src)
+int	ft_strlen(char *src)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (src[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-    char *dst = malloc(ft_strlen(src) + 1); // Space for length plus null
-    ft_strcpy(dst, src);
-    free(dst);
-    return dst;
+	char	*dst;
+
+	dst = malloc(ft_strlen(src) + 1);
+	ft_strcpy(dst, src);
+	return (dst);
 }
 
-int main()
+int	main(void)
 {
-    char source[] = "GeeksForGeeks";
-
-    // A copy of source is created dynamically
-    // and pointer to copy is returned.
-    char *target = strdup(source);
-
-    char *test = ft_strdup(source);
-
-    printf("%s\n", target);
-
-    printf("%s\n", test);
-    return 0;
+	char	source[] = "GeeksForGeeks";
+	char	*target = strdup(source);
+	char	*test = ft_strdup(source);
+	printf("%s\n", target);
+	printf("%s\n", test);
+	return (0);
 }

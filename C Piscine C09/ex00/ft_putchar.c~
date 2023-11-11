@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 12:25:35 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/11 12:25:35 by lny-tina         ###   ########.fr       */
+/*   Created: 2023/11/11 18:03:58 by lny-tina          #+#    #+#             */
+/*   Updated: 2023/11/11 18:03:58 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// ft_putchar.c
+#include <unistd.h>
 
-int	ft_fibonacci(int index)
+void ft_putchar(char c)
 {
-	if (index <= 1)
-		return (index);
-	if (index == 0)
-		return (0);
-	if (index == 1)
-		return (1);
-	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
-}
-
-int	main(void)
-{
-	int	index;
-
-	index = 9;
-	int resultat = ft_fibonacci(index);
-	printf("Le terme à l'indice %d dans la suite de Fibonacci est : %d\n", index, resultat);
-	return (0);
+    write(1, &c, 1);
 }
