@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int	ft_sqrt(int nb)
 {
 	int	i;
@@ -25,16 +23,5 @@ int	ft_sqrt(int nb)
 			return (i);
 		i++;
 	}
-	return (0);
-}
-
-int	main(void)
-{
-	int	nombre = 81;
-	int	resultat = ft_sqrt(nombre);
-	if (resultat != 0)
-		printf("La racine carrée entière de %d est : %d\n", nombre, resultat);
-	else
-		printf("La racine carrée de %d n'est pas un nombre entier.\n", nombre);
 	return (0);
 }
