@@ -20,14 +20,22 @@ int	*ft_range(int min, int max)
 	int	*response;
 	int	i;
 
-	size = max - min;
-	response = malloc(size);
-	i = 0;
-	while (i < size)
+	if (min >= max)
 	{
-		response[i] = min + i;
-		i++;
+		return (0);
 	}
+
+	size = ((max - min) -1);
+
+	if ((response = malloc(size * sizeof(int))) == NULL)
+		return (0);
+	i = 0;
+	while (i <= size)
+		{
+			response[i] = min + i;
+			i++;
+		}
+		
 	response[size] = '\0';
 	return (response);
 }

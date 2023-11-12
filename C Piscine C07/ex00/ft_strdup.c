@@ -10,31 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 void	ft_strcpy(char *dst, char *src)
 {
 	while (*src != '\0')
-	{
-		*dst = *src;
-		src++;
-		dst++;
-	}
+		*dst++ = *src++;
 	*dst = '\0';
 }
 
 int	ft_strlen(char *src)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	count = 0;
+	while (*src++ != '\0')
+		count++;
+	return (count);
 }
 
 char	*ft_strdup(char *src)
@@ -44,14 +34,4 @@ char	*ft_strdup(char *src)
 	dst = malloc(ft_strlen(src) + 1);
 	ft_strcpy(dst, src);
 	return (dst);
-}
-
-int	main(void)
-{
-	char	source[] = "GeeksForGeeks";
-	char	*target = strdup(source);
-	char	*test = ft_strdup(source);
-	printf("%s\n", target);
-	printf("%s\n", test);
-	return (0);
 }
