@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lny-tina <lny-tina@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 14:25:55 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/10 14:03:28 by lny-tina         ###   ########.fr       */
+/*   Created: 2023/11/10 14:43:03 by lny-tina          #+#    #+#             */
+/*   Updated: 2023/11/10 15:05:07 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
+#include <unistd.h>
 
-	i = 0;
-	while (s1[i] == s2[i] && (s1[i] != '\0' && s2[i] != '\0') && i < n)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	unsigned int	n;
+
+	if (nb < 0)
 	{
-		i++;
+		ft_putchar('-');
+		n = -nb;
 	}
-	if (i < n)
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	else
-		return (0);
+		n = nb;
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		n %= 10;
+	}
+	ft_putchar(n + '0');
 }

@@ -6,7 +6,7 @@
 /*   By: lny-tina <lny-tina@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:51:31 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/08 16:43:33 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:01:10 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_strcmp(char *s1, char *s2)
 	{
 		i++;
 	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (s1[i] - s2[i]);
 }
