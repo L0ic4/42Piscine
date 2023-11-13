@@ -6,13 +6,14 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 12:34:50 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 09:34:44 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:26:04 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int	ft_sqrt(int nb)
 {
-	unsigned int		sqrt;
 	unsigned int		index;
 
 	if (nb < 0)
@@ -20,9 +21,8 @@ int	ft_sqrt(int nb)
 	if (nb <= 1)
 		return (nb);
 	index = 0;
-	while (sqrt < (unsigned int)nb)
+	while ((index * index) < (unsigned int)nb)
 	{
-		sqrt = index * index;
 		index++;
 	}
 	if (index * index == (unsigned int)nb)
@@ -31,4 +31,10 @@ int	ft_sqrt(int nb)
 	}
 	else
 		return (0);
+}
+
+int	main(void)
+{
+	printf("%d\n", ft_sqrt(25));
+	return (0);
 }
