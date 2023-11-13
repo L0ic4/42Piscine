@@ -6,7 +6,7 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/11 16:04:57 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:14:00 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,14 @@ int	*ft_range(int min, int max)
 	{
 		return (0);
 	}
-
-	size = ((max - min) -1);
-
-	if ((response = malloc(size * sizeof(int))) == NULL)
-		return (0);
+	size = max - min -1;
+	response = malloc(size * sizeof(int));
 	i = 0;
 	while (i <= size)
-		{
-			response[i] = min + i;
-			i++;
-		}
-		
+	{
+		response[i] = min + i;
+		i++;
+	}
 	response[size] = '\0';
 	return (response);
-}
-
-int	main(void)
-{
-	int	min = 5;
-	int	max = 15;
-	int *result	= ft_range(min, max);
-	printf("Result: ");
-	for (int i = 0; result[i] != '\0'; ++i)
-	{
-		printf("%d ", result[i]);
-	}
-	printf("\n");
-	return (0);
 }

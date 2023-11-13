@@ -6,11 +6,9 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 12:34:50 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 11:26:04 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:09:01 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_sqrt(int nb)
 {
@@ -31,10 +29,4 @@ int	ft_sqrt(int nb)
 	}
 	else
 		return (0);
-}
-
-int	main(void)
-{
-	printf("%d\n", ft_sqrt(25));
-	return (0);
 }

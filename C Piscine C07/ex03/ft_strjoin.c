@@ -6,12 +6,9 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:33:22 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/11 16:33:22 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:21:44 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen(char *src)
 {
@@ -25,52 +22,39 @@ int	ft_strlen(char *src)
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-    int	total_length;
-    int	i;
-    int	j;
-    int	result_index;
-    char
-	    *result;
+	int	total_length;
+	int	i;
+	int	j;
+	int	result_index;
+	char
+		*result;
 
-    total_length = 0;
-    i = 0;
-    while (i < size)
-    {
-	    total_length += ft_strlen(strs[i]);
-	    i++;
-    }
-    total_length += ft_strlen(sep) * (size - 1);
-    result = malloc(total_length + 1);
-    if (result == NULL)
-        return (0);
-    result_index = 0;
-    i = 0;
-    while (i < size)
-    {
-	    j = 0;
-	    while (strs[i][j] != '\0')
-		    result[result_index++] = strs[i][j++];
-	    if (i < size - 1)
-	    {
-		    int sep_index = 0;
-		    while ((result[result_index++] = sep[sep_index++]));
-		    --result_index;
-	    }
-	    i++;
-    }
-    result[result_index] = '\0';
-    return (result);
-}
-
-int	main(void)
-{
-	char	*arr[] = {"Hello", "world", "!"};
-	char	*separator = "*";
-	char	*result = ft_strjoin(3, arr, separator);
-	if (result != NULL)
+	total_length = 0;
+	i = 0;
+	while (i < size)
 	{
-		printf("%s\n", result);
-		free(result);
+		total_length += ft_strlen(strs[i]);
+		i++;
 	}
-	return (0);
+	total_length += ft_strlen(sep) * (size - 1);
+	result = malloc(total_length + 1);
+	if (result == NULL)
+		return (0);
+	result_index = 0;
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (strs[i][j] != '\0')
+			result[result_index++] = strs[i][j++];
+		if (i < size - 1)
+		{
+			int sep_index = 0;
+			while ((result[result_index++] = sep[sep_index++]));
+			--result_index;
+		}
+		i++;
+	}
+	result[result_index] = '\0';
+	return (result);
 }
