@@ -10,7 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
 
 void	swap(char **a, char **b)
 {
@@ -67,7 +73,8 @@ int	main(int argc, char *argv[])
 		i = 1;
 		while (i < argc)
 		{
-			printf("%s\n", argv[i]);
+			ft_putstr(argv[i]);
+			ft_putstr("\n");
 			i++;
 		}
 	}
