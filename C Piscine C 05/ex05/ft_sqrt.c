@@ -6,7 +6,7 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 12:34:50 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/11 12:34:50 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 09:34:44 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@ int	ft_sqrt(int nb)
 	if (nb <= 1)
 		return (nb);
 	index = 0;
-	while ((sqrt = index * index) <= (unsigned int)nb)
+	while (sqrt < (unsigned int)nb)
+	{
+		sqrt = index * index;
 		index++;
-	index -= 1;
-	return (index * index == (unsigned int)nb ? index : 0);
+	}
+	if (index * index == (unsigned int)nb)
+	{
+		return (index);
+	}
+	else
+		return (0);
 }

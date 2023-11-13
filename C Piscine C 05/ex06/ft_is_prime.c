@@ -6,7 +6,7 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 12:54:22 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/12 14:25:32 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/13 09:43:01 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@ int	ft_is_prime(int nb)
 {
 	int	i;
 
-	if (nb == 0 || nb == 1)
+	if (nb <= 1)
 		return (0);
 	i = 2;
-	while (i < nb / 2)
+	while (i <= nb / 2)
 	{
 		if (nb % i == 0)
 			return (0);
