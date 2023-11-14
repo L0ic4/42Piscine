@@ -6,13 +6,9 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:04:57 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 14:14:00 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:10:31 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 int	*ft_range(int min, int max)
 {
@@ -24,8 +20,8 @@ int	*ft_range(int min, int max)
 	{
 		return (0);
 	}
-	size = max - min -1;
-	response = malloc(size * sizeof(int));
+	size = max - min;
+	response = malloc(size);
 	i = 0;
 	while (i <= size)
 	{

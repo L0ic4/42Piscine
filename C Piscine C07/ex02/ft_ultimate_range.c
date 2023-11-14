@@ -6,7 +6,7 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:16:42 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 14:15:21 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:25:14 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 
 	if (min >= max)
 	{
-		*range = NULL;
+		*range = 0;
 		return (0);
 	}
 	size = max - min;
