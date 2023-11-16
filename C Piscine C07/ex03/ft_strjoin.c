@@ -72,7 +72,8 @@ char	*ft_concat(int size, char **strs, char *sep)
 	char
 		*response;
 
-	response = malloc(ft_total_len(size, strs, sep) + 1 * sizeof(int) + sizeof('\0');
+	response = malloc(ft_total_len(size, stirs, sep) + 1 
+		* sizeof(int) + sizeof('\0'));
 	i = 0;
 	result_index = 0;
 	while (i < size)

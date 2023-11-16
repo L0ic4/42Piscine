@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+// #include <stdio.h>
 
 int	*ft_range(int min, int max)
 {
@@ -35,13 +35,13 @@ int	*ft_range(int min, int max)
 	return (response);
 }
 
-int main(void)
-{
-    int *res = ft_range(20,30);
-    while (*res != '\0')
-    {
-        printf("%d\n", *res);
-        res++;
-    }
-    return 0;
-}
+// int main(void)
+// {
+//     int *res = ft_range(20,30);
+//     while (*res != '\0')
+//     {
+//         printf("%d\n", *res);
+//         res++;
+//     }
+//     return 0;
+// }
