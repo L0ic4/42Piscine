@@ -6,30 +6,27 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:33:22 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 14:21:44 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:16:42 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+// #include <stdio.h>
 
-int	ft_strlen(char *src)
+int	ft_strlen(char *strs)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	count = 0;
+	while (*strs++ != '\0')
+		count++;
+	return (count);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+int	ft_total_len(int size, char **strs, char *sep)
 {
-	int	total_length;
 	int	i;
-	int	j;
-	int	result_index;
-	char
-		*result;
+	int	total_length;
 
 	total_length = 0;
 	i = 0;
@@ -39,24 +36,77 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	total_length += ft_strlen(sep) * (size - 1);
-	result = malloc(total_length + 1);
-	if (result == NULL)
-		return (0);
-	result_index = 0;
+	return (total_length);
+}
+
+void	ft_concat_sep(int *result_index, char *response,
+	char *strs_sep, int is_strs)
+{
+	int	i;
+
 	i = 0;
+	if (is_strs == 1)
+	{
+		while (strs_sep[i] != '\0')
+		{
+			response[*result_index] = strs_sep[i];
+			*result_index = *result_index + 1;
+			i++;
+		}
+	}
+	else
+	{
+		while (strs_sep[i] != '\0')
+		{
+			response[*result_index] = strs_sep[i];
+			*result_index = *result_index + 1;
+			i++;
+		}
+	}
+}
+
+char	*ft_concat(int size, char **strs, char *sep)
+{
+	int	result_index;
+	int	i;
+	char
+		*response;
+
+	response = malloc(ft_total_len(size, strs, sep) + 1);
+	i = 0;
+	result_index = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (strs[i][j] != '\0')
-			result[result_index++] = strs[i][j++];
-		if (i < size - 1)
+		ft_concat_sep(&result_index, response, strs[i], 1);
+		if (i < (size - 1))
 		{
-			int sep_index = 0;
-			while ((result[result_index++] = sep[sep_index++]));
-			--result_index;
+			ft_concat_sep(&result_index, response, sep, 0);
 		}
 		i++;
 	}
-	result[result_index] = '\0';
-	return (result);
+	response[result_index] = '\0';
+	return (response);
 }
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	char
+		*response;
+
+	if (size == 0)
+		return (0);
+	response = ft_concat(size, strs, sep);
+	return (response);
+}
+
+// int main(void)
+// {
+// 	char	*strs[1];
+// 	strs[0] = "test1";
+// 	// strs[1] = "test2";
+// 	// strs[2] = "test3";
+// 	char	*sep = "*";
+// 	int	size = 1;
+// 	printf("%s\n", ft_strjoin(size,strs,sep));
+// 	return (0);
+// }
