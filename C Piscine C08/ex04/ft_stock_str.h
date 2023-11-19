@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
+/*   By: lny-tina <lny-tina@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 17:36:43 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/19 15:35:49 by lny-tina         ###   ########.fr       */
+/*   Created: 2023/11/19 15:50:34 by lny-tina          #+#    #+#             */
+/*   Updated: 2023/11/19 15:51:15 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
-
-# define ABS(Value) if (Value < 0) Value *= -1; else Value*= 1;
-
-#endif
+typedef struct s_stock_str
+{
+int size;
+char *str;
+char *copy;
+}
+t_stock_str;
