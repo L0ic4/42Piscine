@@ -72,7 +72,7 @@ char	*ft_concat(int size, char **strs, char *sep)
 	char
 		*response;
 
-	response = malloc(ft_total_len(size, stirs, sep) + 1 
+	response = malloc(ft_total_len(size, strs, sep) + 1 
 		* sizeof(int) + sizeof('\0'));
 	i = 0;
 	result_index = 0;
@@ -102,12 +102,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 // int main(void)
 // {
-// 	char	*strs[1];
+// 	int	size = 3;
+// 	char	*strs[size];
 // 	strs[0] = "test1";
-// 	// strs[1] = "test2";
-// 	// strs[2] = "test3";
+// 	strs[1] = "test2";
+// 	strs[2] = "test3";
 // 	char	*sep = "*";
-// 	int	size = 1;
 // 	printf("%s\n", ft_strjoin(size,strs,sep));
 // 	return (0);
 // }
