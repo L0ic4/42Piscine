@@ -6,11 +6,12 @@
 /*   By: lny-tina <lny-tina@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:48:54 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/19 16:45:28 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:00:25 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_stock_str.h"
 
 void	ft_strcpy(char *dst, char *src)
 {
@@ -45,6 +46,8 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		*result;
 
 	result = malloc(sizeof(t_stock_str) * (ac + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
 	while (i < ac)
 	{
