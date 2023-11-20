@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_stock_str.h"
+#include <stdlib.h>
 
 void	ft_strcpy(char *dst, char *src)
 {
@@ -34,7 +34,7 @@ char	*ft_strdup(char *src)
 {
 	char	*dst;
 
-	dst = malloc(ft_strlen(src) + 1);
+	dst = malloc((ft_strlen(src) + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
 	ft_strcpy(dst, src);
@@ -43,9 +43,8 @@ char	*ft_strdup(char *src)
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int	i;
-	t_stock_str
-		*result;
+	int			i;
+	t_stock_str	*result;
 
 	result = malloc(sizeof(t_stock_str) * (ac + 1));
 	if (!result)
@@ -55,9 +54,9 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	{
 		result[i].size = ft_strlen(av[i]);
 		result[i].str = av[i];
-		result[i].copy = ft_strdup(av[ac]);
+		result[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	result[ac].str = 0;
+	result[i].str = 0;
 	return (result);
 }

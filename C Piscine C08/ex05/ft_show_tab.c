@@ -10,8 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_stock_str.h"
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putstr(char *str)
 {
@@ -54,3 +59,27 @@ void	ft_show_tab(struct s_stock_str *par)
 		i++;
 	}
 }
+
+// int main()
+// {
+// 	char c1[] = "test1";
+// 	char c2[] = "test2";
+// 	char c3[] = "test3";
+
+// 	char *strs[3];
+
+// 	t_stock_str *res;
+
+// 	strs[0] = c1;
+// 	strs[1] = c2;
+// 	strs[2] = c3;
+
+// 	res = ft_strs_to_tab(3,strs);
+
+// 	ft_show_tab(res);
+
+// 	free(res);
+
+// 	return (0);
+
+// }
