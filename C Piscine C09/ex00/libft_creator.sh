@@ -6,7 +6,7 @@
 #    By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 18:06:35 by lny-tina          #+#    #+#              #
-#    Updated: 2023/11/11 18:07:16 by lny-tina         ###   ########.fr        #
+#    Updated: 2023/11/20 13:41:42 by lny-tina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,6 @@ gcc -Wall -Wextra -Werror -c ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_s
 ar rc libft.a ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
 
 # Nettoyage des fichiers objets
-rm -f ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+#rm -f ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
 
-echo "libft.a créée avec succès."
+#echo "libft.a créée avec succès."

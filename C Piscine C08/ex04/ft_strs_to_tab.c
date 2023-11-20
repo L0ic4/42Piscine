@@ -35,13 +35,15 @@ char	*ft_strdup(char *src)
 	char	*dst;
 
 	dst = malloc(ft_strlen(src) + 1);
+	if (!dst)
+		return (NULL);
 	ft_strcpy(dst, src);
 	return (dst);
 }
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int	i;	
+	int	i;
 	t_stock_str
 		*result;
 
@@ -56,8 +58,6 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		result[i].copy = ft_strdup(av[ac]);
 		i++;
 	}
-	result[i].size = 0;
-	result[i].str = 0;
-	result[i].copy = 0;
+	result[ac].str = 0;
 	return (result);
 }
