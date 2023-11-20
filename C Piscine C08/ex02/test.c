@@ -12,7 +12,7 @@ int main()
     ABS(num1);
     ABS(num2);
 
-    printf("Absolute values: num1 = %d, num2 = %d\n", num1, num2);
+    printf("Absolute values: num1 = %d, num2 = %d\n", ABS(num1),  ABS(num2));
 
     return 0;
 }

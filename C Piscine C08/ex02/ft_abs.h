@@ -6,13 +6,19 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 17:36:43 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/20 15:12:52 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:24:53 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-# define FT_ABS_H
 
-# define ABS(Value) ({if (Value < 0){Value *= -1;}else{Value *= 1;}Value;})
+# define ABS(Value) ({ \
+			int res; \
+			if (Value < 0) { \
+			res = Value * (-1); \
+			} \
+			else { \
+			res = Value; \
+			} \
+			res; \
+			})
 
-#endif
