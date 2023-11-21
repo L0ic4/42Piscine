@@ -10,21 +10,69 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_strlen(char *strs)
+int ft_strlen (char *str)
 {
-	int	count;
-
-	count = 0;
-	while (*strs++ != '\0')
+	int count;
+	while (*str)
+	{
 		count++;
+		str++;
+	}
 	return (count);
+}
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
 
 char **ft_split(char *str, char *charset)
 {
-	char **response;
+  int i;
+  int j;
+  int k;
+  int len;
+  char **tab;
 
-	response = malloc(sizeof(char *) )	
+  i = 0;
+  j = 0;
+  k = 0;
+
+  len = ft_strlen(str);
+  /* Allocation du tableau */
+  tab = (char **)malloc(sizeof(char *) * (len + 1));
+  if (tab == NULL)
+    return (NULL);
+  /* Boucle de découpage */
+  while (i < len)
+  {
+    while (str[i] && strchr(charset, str[i]) == NULL)
+      i++;
+    if (str[i])
+    {
+      len = i - j;
+      tab[k] = (char *)malloc(sizeof(char) * (len + 1));
+      if (tab[k] == NULL)
+        return (NULL);
+      ft_strncpy(tab[k], str + j, len);
+      tab[k][len] = '\0';
+      k++;
+      j = i + 1;
+    }
+  }
+  tab[k] = NULL;
+  return (tab);
 }
