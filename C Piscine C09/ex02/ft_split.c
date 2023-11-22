@@ -10,69 +10,87 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen (char *str)
-{
-	int count;
-	while (*str)
-	{
-		count++;
-		str++;
-	}
-	return (count);
-}
+#include "stdlib.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strndup(char *src, int n)
 {
-	unsigned int	i;
+	int		i;
+	char	*dest;
 
+	if (!src)
+		return (NULL);
 	i = 0;
-	while (i < n && src[i] != '\0')
+	if (!(dest = (char *)malloc((n + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (i < n)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
+	dest[i] = '\0';
 	return (dest);
 }
 
-char **ft_split(char *str, char *charset)
+int		is_sep(char c, char *charset)
 {
-  int i;
-  int j;
-  int k;
-  int len;
-  char **tab;
+	int	i;
 
-  i = 0;
-  j = 0;
-  k = 0;
-
-  len = ft_strlen(str);
-  /* Allocation du tableau */
-  tab = (char **)malloc(sizeof(char *) * (len + 1));
-  if (tab == NULL)
-    return (NULL);
-  /* Boucle de découpage */
-  while (i < len)
-  {
-    while (str[i] && strchr(charset, str[i]) == NULL)
-      i++;
-    if (str[i])
-    {
-      len = i - j;
-      tab[k] = (char *)malloc(sizeof(char) * (len + 1));
-      if (tab[k] == NULL)
-        return (NULL);
-      ft_strncpy(tab[k], str + j, len);
-      tab[k][len] = '\0';
-      k++;
-      j = i + 1;
-    }
-  }
-  tab[k] = NULL;
-  return (tab);
+	i = 0;
+	if (c == '\0')
+		return (1);
+	while (charset[i])
+	{
+		if (c == (charset[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
+
+int		count_words(char *str, char *charset)
+{
+	int	i;
+	int	nb_word;
+
+	nb_word = 0;
+	if (!is_sep(str[0], charset))
+		nb_word++;
+	i = 1;
+	while (str[i])
+	{
+		if (!is_sep(str[i], charset) && is_sep(str[i - 1], charset))
+			nb_word++;
+		i++;
+	}
+	return (nb_word);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char	**tab;
+	int		i;
+	int		j;
+	int		k;
+
+	tab = (char **)malloc((count_words(str, charset) + 1) * sizeof(char *));
+	k = 0;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (!is_sep(str[i + j], charset))
+			j++;
+		if (j)
+		{
+			tab[k] = ft_strndup(&str[i], j);
+			k++;
+			i = i + j;
+		}
+		i++;
+	}
+	tab[k] = 0;
+	return (tab);
+}
+
+
