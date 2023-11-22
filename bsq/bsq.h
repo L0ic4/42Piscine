@@ -1,4 +1,5 @@
-#define MAX_SIZE 100
+#define MAX_SIZE 1024
+#define BUFFER_SIZE 1024
 
 typedef struct
 {
