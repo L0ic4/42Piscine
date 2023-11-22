@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-// #include <stdio.h>
 
 int	ft_strlen(char *strs)
 {
@@ -28,6 +27,8 @@ int	ft_total_len(int size, char **strs, char *sep)
 	int	i;
 	int	total_length;
 
+	if (size == 0)
+		return (1);
 	total_length = 0;
 	i = 0;
 	while (i < size)
@@ -36,68 +37,46 @@ int	ft_total_len(int size, char **strs, char *sep)
 		i++;
 	}
 	total_length += ft_strlen(sep) * (size - 1);
-	return (total_length);
+	return (total_length + 1);
 }
 
-void	ft_concat_sep(int *result_index, char *response,
-	char *strs_sep, int is_strs)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
+	int	destlen;
 
 	i = 0;
-	if (is_strs == 1)
+	destlen = ft_strlen(dest);
+	while (src[i])
 	{
-		while (strs_sep[i] != '\0')
-		{
-			response[*result_index] = strs_sep[i];
-			*result_index = *result_index + 1;
-			i++;
-		}
-	}
-	else
-	{
-		while (strs_sep[i] != '\0')
-		{
-			response[*result_index] = strs_sep[i];
-			*result_index = *result_index + 1;
-			i++;
-		}
-	}
-}
-
-char	*ft_concat(int size, char **strs, char *sep)
-{
-	int	result_index;
-	int	i;
-	char
-		*response;
-
-	response = malloc(ft_total_len(size, strs, sep) + 1 
-		* sizeof(int) + sizeof('\0'));
-	i = 0;
-	result_index = 0;
-	while (i < size)
-	{
-		ft_concat_sep(&result_index, response, strs[i], 1);
-		if (i < (size - 1))
-		{
-			ft_concat_sep(&result_index, response, sep, 0);
-		}
+		dest[destlen + i] = src[i];
 		i++;
 	}
-	response[result_index] = '\0';
-	return (response);
+	dest[destlen + i] = 0;
+	return (dest);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char
-		*response;
+	char	*result;
+	int		i;
 
+	result = malloc(ft_total_len(size, strs, sep) * sizeof(char));
+	if (!result)
+		return (NULL);
+	result[0] = 0;
 	if (size == 0)
-		return (0);
-	response = ft_concat(size, strs, sep);
-	return (response);
+		return (result);
+	i = 0;
+	while (i < size)
+	{
+		ft_strcat(result, strs[i]);
+		if (i != size - 1)
+			ft_strcat(result, sep);
+		i++;
+	}
+	result[ft_strlen(result)] = 0;
+	return (result);
 }
 
 // int main(void)
