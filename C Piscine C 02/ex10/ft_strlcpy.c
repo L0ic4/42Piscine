@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lny-tina <lny-tina@student.42antanana      +#+  +:+       +#+        */
+/*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:14:08 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 13:45:20 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:54:33 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	count;
 	unsigned int	i;
+	unsigned int	count;
 
+	if (!src || !dest)
+		return (0);
 	count = 0;
-	i = 0;
-	while (*src != '\0')
+	while (src[count])
 		count++;
-	if (size != 0)
+	if (size == 0)
+		return (count);
+	i = 0;
+	while (i < size - 1 && src[i])
 	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	*dest = '\0';
+	dest[i] = '\0';
 	return (count);
 }
