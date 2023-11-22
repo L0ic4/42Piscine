@@ -27,10 +27,10 @@ void ft_print_game_board(GameBoard *board)
         int j = 0;
         while (j < board->rows)
         {
-            write(STDOUT_FILENO, &board->grid[i][j], 1);
+            write(1, &board->grid[i][j], 1);
             j++;
         }
-        write(STDOUT_FILENO, &newline, 1);
+        write(1, &newline, 1);
         i++;
     }
 }

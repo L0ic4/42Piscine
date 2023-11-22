@@ -38,8 +38,5 @@ void ft_print_game_board(GameBoard *board);
 double ft_min(double a, double b);
 size_t ft_strlen(const char *str);
 int ft_atoi(const char *str);
-void set_board_info(GameBoard *gameBoard, char *first_line);
-char *getFirstLine(char *filename);
-void readFileAndSetGrid(GameBoard *gameBoard, char *filename);
 
 #endif
