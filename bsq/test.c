@@ -1,18 +1,10 @@
+#include <unistd.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <math.h>
-
-#define MAX_SIZE 100
-
-typedef struct
-{
-    int rows;
-    char empty;
-    char obstacle;
-    char full;
-    char grid[MAX_SIZE][MAX_SIZE];
-} GameBoard;
+#include "bsq.h"
 
 // Fonction pour initialiser le plateau de jeu à partir d'un fichier
 void initializeGameBoard(GameBoard *board, const char *filename)
@@ -43,10 +35,10 @@ void printGameBoard(const GameBoard *board)
     // printf("Caractère vide : %c\n", board->empty);
     // printf("Caractère obstacle : %c\n", board->obstacle);
     // printf("Caractère plein : %c\n", board->full);
-
-    printf("Plateau de jeu :\n");
-     for (int i = 0; i < board->rows; i++) {
-        for (int j = 0; j < board->rows; j++) {
+    for (int i = 0; i < board->rows; i++)
+    {
+        for (int j = 0; j < board->rows; j++)
+        {
             printf("%c ", board->grid[i][j]);
         }
         printf("\n");
@@ -110,21 +102,22 @@ void findLargestSquare(GameBoard *board)
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2)
+    int i;
+    if (argc == 0)
     {
-        fprintf(stderr, "Usage: %s <nom_fichier>\n", argv[0]);
-        return EXIT_FAILURE;
+        return (0);
     }
 
-    GameBoard board;
-    initializeGameBoard(&board, argv[1]);
-
-    printf("Original Matrix:\n");
-    printGameBoard(&board);
-
-    findLargestSquare(&board);
-    printf("Largest Square:\n");
-    printGameBoard(&board);
-
-    return EXIT_SUCCESS;
+    i = 1;
+    while (i < argc)
+    {
+        GameBoard board;
+        initializeGameBoard(&board, argv[i]);
+        findLargestSquare(&board);
+        printGameBoard(&board);
+        i++;
+        if (i != argc)
+            write(1, "\n", 1);
+    }
+    return (0);
 }
