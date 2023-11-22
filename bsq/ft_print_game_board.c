@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 
 void ft_print_game_board(GameBoard *board)
 {

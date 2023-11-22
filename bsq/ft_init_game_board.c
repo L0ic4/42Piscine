@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include "utils.c"
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <string.h>
 
 void readFileAndSetGrid(GameBoard *gameBoard, char *filename)
 {

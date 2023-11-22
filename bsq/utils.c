@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "bsq.h"
 
 double ft_min(double a, double b)
 {
