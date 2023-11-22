@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 13:03:36 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/13 11:35:25 by lny-tina         ###   ########.fr       */
+/*   Created: 2023/11/22 09:12:27 by lny-tina          #+#    #+#             */
+/*   Updated: 2023/11/22 09:12:27 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+int	ft_strlen(char *str)
 {
 	int	i;
 
-	if (nb == 2)
-		return (1);
-	if (nb % 2 == 0 || nb < 2)
-		return (0);
-	i = 3;
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
+	i = 0;
+	while (str[i])
 		i++;
-	}
-	return (1);
+	return (i);
 }
 
-int	ft_find_next_prime(int nb)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	if (nb <= 2)
-		return (2);
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
+	unsigned int	i;
+	unsigned int	length;
+
+	length = 0;
+	i = 0;
+	while (dest[length] && length < size)
+		length++;
+	while (src[i] && size && length + i < size - 1)
+	{
+		dest[length + i] = src[i];
+		i++;
+	}
+	if (length < size)
+		dest[length + i] = 0;
+	i = 0;
+	while (src[i])
+		i++;
+	return (length + i);
 }

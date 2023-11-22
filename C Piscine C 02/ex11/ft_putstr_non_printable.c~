@@ -14,7 +14,7 @@
 
 int	is_printable(char chr)
 {
-	return (chr < ' ' || chr == 127);
+	return(chr < ' ' || chr == 127);
 }
 
 void	ft_putchar(char c)
