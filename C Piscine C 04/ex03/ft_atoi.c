@@ -15,51 +15,35 @@ int	is_integer(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int	is_positif(char *str)
+int	is_space(char c)
 {
-	int	i;
-	int	minus;
-
-	minus = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '-')
-		{
-			minus++;
-		}
-		i++;
-	}
-	return (minus % 2 == 0);
-}
-
-int	to_int(char *str)
-{
-	int	i;
-	int	result;
-
-	result = 0;
-	i = 0;
-	while (str[i] != '\0' && !is_integer(str[i]))
-	{
-		i++;
-	}
-	while (str[i] != '\0' && is_integer(str[i]))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result);
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (1);
+	else
+		return (0);
 }
 
 int	ft_atoi(char *str)
 {
-	int	response;
+	int	i;
+	int	sign;
+	int	value;
 
-	response = to_int(str);
-	if (!is_positif(str))
+	i = 0;
+	value = 0;
+	sign = 1;
+	while (is_space(str[i]))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		response *= (-1);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	return (response);
+	while (is_integer(str[i]))
+	{
+		value = value * 10 + str[i] - '0';
+		i++;
+	}
+	return (value * sign);
 }
