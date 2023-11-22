@@ -10,25 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	compare(char *c1, char *c2)
+int ft_strlen(char *str)
 {
-	while (*c1 && *c2)
+	int count;
+
+	count = 0;
+	while (*str)
 	{
-		if (*c1 != *c2)
-			return (0);
-		c1++;
-		c2++;
+		count++;
+		str++;
 	}
-	return (*c2 == '\0');
+	return (count);
 }
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	while (*str != '\0')
+	int	i;
+	int	j;
+
+	i = 0;
+	if (*to_find == 0)
+		return (str);
+	while (str[i])
 	{
-		if ((*str == *to_find) && compare(str, to_find))
-			return (str);
-		str++;
+		if (str[i] == to_find[0])
+		{
+			j = 0;
+			while (str[i + j] == to_find[j] && to_find[j])
+				j++;
+			if (to_find[j] == 0)
+				return (&str[i]);
+		}
+		i++;
 	}
 	return (0);
 }
