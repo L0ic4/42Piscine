@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
-
+#include <stdlib.h>
+// #include <stdio.h>
 char	*ft_strndup(char *src, int n)
 {
 	int		i;
@@ -93,3 +93,22 @@ char	**ft_split(char *str, char *charset)
 	tab[k] = 0;
 	return (tab);
 }
+
+// int	main(void)
+// {
+// 	char	str[] = " jerry - micael - fidimalala ";
+// 	char	charset[] = " - ";
+// 	int		size;
+// 	char	**result;
+// 	int		i;
+// 	size = count_words(str, charset);
+// 	printf("size: %d\n", size);
+// 	result = ft_split(str, charset);
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("i: %d - val: %s\n", i, result[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
