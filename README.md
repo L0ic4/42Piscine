@@ -9,6 +9,7 @@ I encourage you to read and understand the code before attempting to copy it. Bl
 
 Please feel free to use this repository as a learning resource, but do not copy my code without understanding it.
 
-# Use this for training : https://grademe.fr/
+ Use this for training : https://grademe.fr/
+ Use this to simplify your life : https://github.com/dawnbeen/c_formatter_42
 
 I hope you find this repository helpful! If you like give me a star! ⭐
