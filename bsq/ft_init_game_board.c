@@ -75,7 +75,7 @@ char *getFirstLine(char *filename)
     }
 
     // Allocate memory for the first line
-    firstLine = malloc(strlen(buffer) + 1);
+    firstLine = malloc(ft_strlen(buffer) + 1);
     if (firstLine == NULL)
     {
         perror("Error allocating memory");
@@ -84,7 +84,7 @@ char *getFirstLine(char *filename)
     }
 
     // Copy the first line to the allocated memory
-    strcpy(firstLine, buffer);
+    ft_strcpy(firstLine, buffer);
 
     // Close the file
     if (close(fileDescriptor) == -1)

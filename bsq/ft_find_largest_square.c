@@ -6,13 +6,13 @@
 /*   By: lny-tina <lny-tina@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:48:22 by lny-tina          #+#    #+#             */
-/*   Updated: 2023/11/22 22:48:22 by lny-tina         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:48:43 by lny-tina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-void ft_find_largest_square(GameBoard *board)
+void	ft_find_largest_square(GameBoard *board)
 {
     int **dp = (int **)malloc(board->rows * sizeof(int *));
     int d = 0;

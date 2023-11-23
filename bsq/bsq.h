@@ -38,5 +38,6 @@ void ft_print_game_board(GameBoard *board);
 double ft_min(double a, double b);
 size_t ft_strlen(const char *str);
 int ft_atoi(const char *str);
+char *ft_strcpy(char *dest, char *src);
 
 #endif
