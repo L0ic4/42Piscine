@@ -18,9 +18,9 @@ void ft_print_game_board(GameBoard *board)
     char newline = '\n';
 
     printf("Nombre de lignes : %d\n", board->rows);
-    printf("Caractère vide : %c\n", board->empty);
-    printf("Caractère obstacle : %c\n", board->obstacle);
-    printf("Caractère plein : %c\n", board->full);
+    printf("Caractere vide : %c\n", board->empty);
+    printf("Caractere obstacle : %c\n", board->obstacle);
+    printf("Caractere plein : %c\n", board->full);
 
     while (i < board->rows)
     {
