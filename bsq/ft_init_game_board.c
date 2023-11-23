@@ -18,31 +18,31 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define BUFFER_SIZE 1024
-char** getAllLinesExceptFirst(char *filename, size_t *numLines) {
+GameBoard getAllLinesExceptFirst(char *filename) {
+    GameBoard GameBoard;
+    int numLines = 0;
     int fileDescriptor = open(filename, O_RDONLY);
     if (fileDescriptor == -1) {
         perror("Error opening the file");
-        return NULL;
+        return GameBoard;
     }
     // Count the number of lines in the file
-    *numLines = 0;
     char buffer[BUFFER_SIZE];
     ssize_t bytesRead;
     while ((bytesRead = read(fileDescriptor, buffer, sizeof(buffer))) > 0) {
         for (ssize_t i = 0; i < bytesRead; i++) {
             if (buffer[i] == '\n') {
-                (*numLines)++;
+                numLines++;
             }
         }
     }
     lseek(fileDescriptor, 0, SEEK_SET); // Reset file pointer to the beginning
     // Allocate memory for the 2D array
-    char **lines = malloc((*numLines) * sizeof(char*));
-    if (lines == NULL) {
+    GameBoard.rows = malloc((GameBoard.numLines) * sizeof(char*));
+    if (GameBoard.lines == NULL) {
         perror("Error allocating memory");
         close(fileDescriptor);
-        return NULL;
+        return GameBoard;
     }
     // Read and store lines in the array
     size_t lineIndex = 0;
@@ -51,23 +51,32 @@ char** getAllLinesExceptFirst(char *filename, size_t *numLines) {
         for (ssize_t i = 0; i < bytesRead2; i++) {
             if (buffer[i] == '\n') {
                 buffer[i] = '\0'; // Null-terminate the line
-                lines[lineIndex] = strdup(buffer);
-                if (lines[lineIndex] == NULL) {
+                GameBoard.rows[lineIndex] = strdup(buffer);
+                if (GameBoard.rows[lineIndex] == NULL) {
                     perror("Error allocating memory");
                     close(fileDescriptor);
                     for (size_t j = 0; j < lineIndex; j++) {
-                        free(lines[j]);
+                        free(GameBoard.rows[j]);
                     }
-                    free(lines);
-                    return NULL;
+                    free(GameBoard.rows);
+                    GameBoard.numLines = 0;
+                    return GameBoard;
                 }
                 lineIndex++;
             }
         }
     }
     close(fileDescriptor);
-    return lines;
+    return GameBoard;
 }
+// Function to free memory allocated for GameBoard
+void freeGameBoard(GameBoard gameboard) {
+    for (size_t i = 0; i < GameBoard.numLines; i++) {
+        free(GameBoard.rows[i]);
+    }
+    free(GameBoard.rows);
+}
+
 
 char *getFirstLine(char *filename)
 {
@@ -147,21 +156,13 @@ void set_board_info(GameBoard *gameBoard, char *first_line)
     free(rows);
 }
 
-void set_board_grid(GameBoard *board,char **arr)
-{
-    int i;
-    int j;
 
-    i = 0;
-    while(array[i] != '\0')
-    {
-        while
-    }
-}
 
 void ft_init_game_board(GameBoard *board, char *filename)
 {
     char *firstline = getFirstLine(filename);
+
+    board = getAllLinesExceptFirst(filename);
+
     set_board_info(board, firstline);
-    readFileAndSetGrid(board, filename);
 }
