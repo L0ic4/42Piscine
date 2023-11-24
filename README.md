@@ -29,3 +29,5 @@ Simplify your coding life with C Formatter 42 — a handy utility to streamline 
 Embrace simplicity and efficiency with Oh My Zsh, transforming your terminal into a powerful ally.
 
 Feel free to leverage this repository as a rich learning resource. However, remember the cardinal rule: do not copy without comprehension.
+
+![lvl](https://github.com/NiceGuyMe/42Piscine/blob/main/wave.svg)
