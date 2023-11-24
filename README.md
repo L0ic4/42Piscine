@@ -4,7 +4,9 @@
 
 Welcome to the vibrant repository capturing the essence of my 42 Piscine journey!
 
-![42 Piscine Image](https://github.com/NiceGuyMe/42Piscine/blob/main/42_Logo.png)
+<div style="text-align: center;">
+  <img src="https://github.com/NiceGuyMe/42Piscine/blob/main/42_Logo.png" alt="42 Piscine Image" width="300"/>
+</div>
 
 This repository contains the code and solutions I developed during my 42 Piscine experience.
 
