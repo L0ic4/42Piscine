@@ -1,6 +1,7 @@
 # 42Piscine a unique experience 🌟
 
 **My 42 Piscine Experience (November 2023)**
+![lvl](https://github.com/NiceGuyMe/42Piscine/blob/main/max.png)
 
 😉 Welcome to the vibrant repository capturing the essence of my 42 Piscine journey!
 
